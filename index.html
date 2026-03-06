@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github issue tracke</title>
+
+    <!-- tailwind and daisy -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- css style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-[#F8FAFC] ">
+
+    <div class="min-h-screen py-20">
+        <div class=" max-w-md mx-auto py-15 bg-white shadow-lg rounded-lg">
+            <div class="flex justify-center mb-6"><img src="assets/github-logo.png" alt=""></div>
+            <h1 class="text-2xl font-semibold black-text text-center mb-1">GitHub Issues Tracker</h1>
+            <p class="gray-text text-center mb-2">Sign in to manage your issues</p>
+
+
+            <!-- form -->
+            <div class="card bg-white ">
+                <div class="card-body ">
+                    <fieldset class="fieldset w-full px-5">
+                        <label class="label black-text font-medium text-base">Username</label>
+                        <input type="email" class="input w-full gray-text" placeholder="Enter Username" />
+                        <p class="text-sm text-[#4A00FF] pb-4">Default: admin</p>
+                        <label class="label black-text font-medium text-base">Password</label>
+                        <input type="password" class="input w-full gray-text" placeholder="Enter Password" />
+                        <p class="text-sm text-[#4A00FF]">Default: admin123</p>
+                        <button class="btn btn-primary mt-4">Sign In</button>
+                    </fieldset>
+                </div>
+            </div>
+
+
+            <!-- below part -->
+            <div class="space-y-6 text-center">
+                <h1 class="black-text">OR</h1>
+                <p class="gray-text text-sm">Demo Credentials:</p>
+                <div class="black-text">
+                    <p><span class="font-semibold">Username:</span> admin</p>
+                    <p><span class="font-semibold">
+                            Password:</span> admin123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
