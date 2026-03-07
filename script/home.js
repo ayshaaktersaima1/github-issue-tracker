@@ -1,8 +1,8 @@
-const loadAllissues = () => {
+const loadAllIssues = () => {
     const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
     fetch(url)
         .then(res => res.json())
-        .then(data => displayAllIssues(data.data))
+        .then(data => displayAllIssues(data.data));
 }
 
 // "id": 1,
@@ -61,7 +61,7 @@ const displayAllIssues = (issues) => {
                 <div class="flex justify-between items-center">
                     <div><img src="${statusImg}" alt=""></div>
                     <div>
-                        <div id="priority-badge" class="badge ${priorityCls} text-[12px] font-medium">${issue.priority}</div>
+                        <div id="priority-badge" class="badge ${priorityCls} text-[12px] font-medium px-4">${issue.priority}</div>
                     </div>
                 </div>
                 <!-- 2nd 3rd-->
@@ -86,4 +86,35 @@ const displayAllIssues = (issues) => {
 
 
 }
-loadAllissues()
+
+loadAllIssues();
+// filtering open
+
+document.getElementById('btn-open').addEventListener('click', function () {
+
+    const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayOpenissue(data.data));
+})
+
+const displayOpenissue = (issues) => {
+
+    const openIssues = issues.filter(issue => issue.status === 'open');
+    displayAllIssues(openIssues);
+}
+
+// filtering closed
+document.getElementById('btn-closed').addEventListener('click', function () {
+    const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayClosedIssues(data.data));
+
+})
+
+const displayClosedIssues = (issues) => {
+
+    const closedIssues = issues.filter(issue => issue.status === 'closed');
+    displayAllIssues(closedIssues);
+}
