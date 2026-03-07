@@ -4,7 +4,7 @@ document.getElementById('btn-signIn').addEventListener('click', function () {
 
     if (userName === 'admin' && userPass === 'admin123') {
         alert('Sign in Successful');
-        window.location.assign('/home.html');
+        window.location.assign('home.html');
     }
     else {
         alert('Sign in Failed');
