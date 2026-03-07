@@ -38,12 +38,12 @@
                 <div class="card-body ">
                     <fieldset class="fieldset w-full px-5">
                         <label class="label black-text font-medium text-base">Username</label>
-                        <input type="email" class="input w-full gray-text" placeholder="Enter Username" />
+                        <input id="userName-val" type="email" class="input w-full " placeholder="Enter Username" />
                         <p class="text-sm text-[#4A00FF] pb-4">Default: admin</p>
                         <label class="label black-text font-medium text-base">Password</label>
-                        <input type="password" class="input w-full gray-text" placeholder="Enter Password" />
+                        <input id="userName-pass" type="password" class="input w-full" placeholder="Enter Password" />
                         <p class="text-sm text-[#4A00FF]">Default: admin123</p>
-                        <button class="btn btn-primary mt-4">Sign In</button>
+                        <button id="btn-signIn" class="btn bg-[#4A00FF] text-white mt-4">Sign In</button>
                     </fieldset>
                 </div>
             </div>
@@ -51,9 +51,17 @@
 
             <!-- below part -->
             <div class="space-y-6 text-center">
-                <h1 class="black-text">OR</h1>
+
+
+                <div class="flex items-center gap-3">
+                    <div class="flex-1 border-t ml-11 border-[#E4E4E7]"></div>
+                    <span class="black-text">OR</span>
+                    <div class="flex-1 border-t mr-11 border-[#E4E4E7]"></div>
+                </div>
+
+
                 <p class="gray-text text-sm">Demo Credentials:</p>
-                <div class="black-text">
+                <div class="black-text bg-[#F8FAFC] mx-11 p-6 mt-[-8px]">
                     <p><span class="font-semibold">Username:</span> admin</p>
                     <p><span class="font-semibold">
                             Password:</span> admin123</p>
@@ -61,6 +69,10 @@
             </div>
         </div>
     </div>
+    <!--  -->
+
+
+    <script src="script/index.js"></script>
 </body>
 
 </html>
