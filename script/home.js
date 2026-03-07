@@ -31,20 +31,6 @@ const removeActive = () => {
     allBtns.forEach(btn => btn.classList.remove('active-btn'));
 }
 
-// "id": 1,
-// "title": "Fix navigation menu on mobile devices",
-// "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-// "status": "open",
-// "labels": [
-// "bug",
-// "help wanted"
-// ],
-// "priority": "high",
-// "author": "john_doe",
-// "assignee": "jane_smith",
-// "createdAt": "2024-01-15T10:30:00Z",
-// "updatedAt": "2024-01-15T10:30:00Z"
-
 
 const displayAllIssues = (issues) => {
     const count = document.getElementById('count');
@@ -84,7 +70,7 @@ const displayAllIssues = (issues) => {
         }
 
         const card = document.createElement('div');
-        card.innerHTML = `<div class="space-y-3 p-4 bg-white border border-[#E4E4E7] ${topBorder} rounded-md shadow-sm">
+        card.innerHTML = `<div onclick="loadSingleIssues(${issue.id})" class="space-y-3 p-4 bg-white border border-[#E4E4E7] ${topBorder} rounded-md shadow-sm">
                 <!-- 1st line -->
                 <div class="flex justify-between items-center">
                     <div><img src="${statusImg}" alt=""></div>
@@ -156,4 +142,59 @@ const displayClosedIssues = (issues) => {
 
     const closedIssues = issues.filter(issue => issue.status === 'closed');
     displayAllIssues(closedIssues);
+}
+
+// modal
+
+const loadSingleIssues = (id) => {
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displaySingleIssue(data.data));
+}
+const displaySingleIssue = (issue) => {
+
+    const date = issue.createdAt.split('T')[0];
+
+    const issueCon = document.getElementById('single-Issue-Con');
+    issueCon.innerHTML = `<div class="modal-box">
+
+                <!-- card info -->
+                <h2 class="text black-text text-2xl font-bold pb-2">${issue.title}</h2>
+                <!-- 2nd line -->
+                <div class="flex items-center pb-6 gap-3">
+                    <div class="badge badge-primary font-medium text-sm">${issue.status}</div>
+                    <p class="text-sm gray-text text-sm">Opened by ${issue.author}</p>
+                    <p class="text-sm gray-text text-sm">${date}</p>
+                </div>
+                <!-- 3rd line -->
+                <div class="flex items-center gap-1 pb-6">
+                    <div class="badge">Primary</div>
+                    <div class="badge">Primary</div>
+                </div>
+                <!-- des -->
+                <p class="gray-text pb-6">${issue.description}</p>
+
+                <!-- grey div -->
+                <div class="flex items-center justify-start gap-35 bg-[#F8FAFC] py-4 ">
+                    <div class="pl-4">
+                        <h2 class="gray-text">Assignee:</h2>
+                        <p class="black-text font-semibold">${issue.author}</p>
+                    </div>
+                    <div>
+                        <p class="gray-text">Priority:</p>
+                        <div class="badge">${issue.priority}</div>
+                    </div>
+                </div>
+
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn bg-[#4a00ff] text-white">Close</button>
+                    </form>
+                </div>
+            </div>`;
+
+    document.getElementById('issue_Details').showModal();
 }
