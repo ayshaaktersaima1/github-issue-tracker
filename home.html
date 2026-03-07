@@ -45,7 +45,7 @@
                         <input type="search" required placeholder="Search issues..." />
                     </label>
                     <div class="dropdown dropdown-end">
-                        <button class="btn btn-primary w-[120px]">+ New Issue</button>
+                        <button class="btn bg-[#4A00FF] text-white w-[120px]">+ New Issue</button>
                     </div>
                 </div>
             </div>
@@ -53,14 +53,61 @@
     </header>
 
     <!-- tab buttons section -->
-    <section class="w-[80%] mx-auto pt-13 pb-4 ">
-        <div id="tab-btn-containers" class="bg-white p-6 shadow-lg rounded-lg flex gap-2">
-            <button class="btn btn-primary">All</button>
-            <button class="btn btn-primary">Open</button>
-            <button class="btn btn-primary">Closed</button>
+    <section class="w-[80%] mx-auto pt-13 pb-4">
+        <div id="tab-btn-containers" class="bg-white p-6 shadow-md rounded-lg flex gap-2">
+            <button class="btn bg-[#4A00FF] text-white">All</button>
+            <button class="btn bg-[#4A00FF] text-white">Open</button>
+            <button class="btn bg-[#4A00FF] text-white">Closed</button>
         </div>
     </section>
 
+    <!-- no -->
+    <section class="w-[80%] mx-auto pb-4">
+        <div class="bg-white p-6 shadow-sm rounded-lg flex items-center justify-between">
+            <!-- left side -->
+            <div class="flex items-center gap-2">
+                <div class="bg-[#ECE4FF] rounded-full p-2">
+                    <img src="assets/Aperture.png" alt="">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold black-text"><span id="count">0 </span> Issues</h2>
+                    <p class="gray-text font-normal">Track and manage your project issues</p>
+                </div>
+
+            </div>
+            <!-- right side -->
+            <div class="flex items-center gap-4 black-text font-medium">
+                <div class="flex items-center gap-2">
+                    <div class="h-3 w-3 bg-[#00a96e] rounded-full">
+                    </div>
+                    <p>Open</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="h-3 w-3 bg-[#a855f7] rounded-full">
+                    </div>
+                    <p>Closed</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- card section -->
+    <section class="w-[80%] mx-auto bg-[#f8fafc] mt-[-15px]">
+        <!-- card container -->
+        <div id="cards-container" class="grid grid-cols-4 gap-3 bg-[#fbfbfb] shadow-md p-3">
+
+
+        </div>
+
+    </section>
+
+
+
+
+    <script src="script/home.js"></script>
 </body>
 
 </html>
