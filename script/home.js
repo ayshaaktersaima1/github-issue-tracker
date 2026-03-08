@@ -112,7 +112,7 @@ const displayAllIssues = (issues) => {
                     
                 </div>
                 <!-- hr -->
-                <hr class="border-gray-300">
+                <div class="-mx-4"><hr class="border-gray-300"></div>
                 <!-- below -->
                 <p class="gray-text text-sm">#${issue.id} by ${issue.author}</p>
                 <p class="gray-text text-sm">${date}</p>
@@ -228,7 +228,7 @@ const displaySingleIssue = (issue) => {
                 <div class="flex items-center justify-start gap-35 bg-[#F8FAFC] py-4 rounded-lg">
                     <div class="pl-4">
                         <h2 class="gray-text">Assignee:</h2>
-                        <p class="black-text font-semibold">${issue.author}</p>
+                        <p class="black-text font-semibold">${issue.assignee}</p>
                     </div>
                     <div class="space-y-1">
                         <p class="gray-text">Priority:</p>
