@@ -198,3 +198,17 @@ const displaySingleIssue = (issue) => {
 
     document.getElementById('issue_Details').showModal();
 }
+
+// search
+
+const searching = () => {
+
+    const searchInput = document.getElementById('search-input').value;
+
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInput}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayAllIssues(data.data));
+
+}
