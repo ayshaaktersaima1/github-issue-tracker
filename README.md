@@ -5,7 +5,7 @@ let is the newer version.It can be updated but can not be re-declared in the sam
 const is used for values that should not be changed and we cant reassign it after declaring it and it is block-scoped .
 
 2. What is the spread operator (...)?
-Answer: The spread operator is used to expand  elements of an array or object.For example.
+Answer: The spread operator is used to expand  elements of an array or object.For example-
 
 let arr1=[10,20,30];
 let arr2=[...arr1,90,100];
