@@ -1,3 +1,8 @@
+const createElement = (arr) => {
+    const htmlElements = arr.map(el => `<span class=" border border-gray-300 px-2 py-1 rounded-xl">${el}</span>`);
+    return (htmlElements.join(''));
+}
+
 //manage spinner
 function manageSpinner(statusSpinner) {
     if (statusSpinner === true) {
@@ -82,9 +87,9 @@ const displayAllIssues = (issues) => {
                 <h2 class="black-text font-semibold text-base min-h-[48px]">${issue.title}</h2>
                 <p class="gray-text text-sm min-h-[80px]">${issue.description}</p>
                 <!-- 4th -->
-                <div class="flex items-center justify-between">
-                    <div class="badge text-[12px] font-medium">Bug</div>
-                    <div class="badge text-[12px] font-medium">help wanted</div>
+                <div class="">
+                    <div class="flex items-center gap-2 font-medium uppercase text-xs">${createElement(issue.labels)}</div>
+                    
                 </div>
                 <!-- hr -->
                 <hr class="border-gray-300">
@@ -94,7 +99,8 @@ const displayAllIssues = (issues) => {
 
             </div>`;
 
-        cardContainer.append(card)
+
+        cardContainer.append(card);
     })
 
     manageSpinner(false);
@@ -164,8 +170,8 @@ const displaySingleIssue = (issue) => {
                 <!-- 2nd line -->
                 <div class="flex items-center pb-6 gap-3">
                     <div class="badge badge-primary font-medium text-sm">${issue.status}</div>
-                    <p class="text-sm gray-text text-sm">Opened by ${issue.author}</p>
-                    <p class="text-sm gray-text text-sm">${date}</p>
+                    <p class="gray-text text-sm">Opened by ${issue.author}</p>
+                    <p class="gray-text text-sm">${date}</p>
                 </div>
                 <!-- 3rd line -->
                 <div class="flex items-center gap-1 pb-6">
