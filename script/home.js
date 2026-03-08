@@ -1,5 +1,24 @@
 const createElement = (arr) => {
-    const htmlElements = arr.map(el => `<span class=" border border-gray-300 px-[7px] py-1 rounded-xl">${el}</span>`);
+    const htmlElements = arr.map(el => {
+        if (el === 'bug') {
+            highlight = 'text-[#EF4444] bg-[#FEECEC] border-[#FECACA]';
+        }
+        else if (el === 'help wanted') {
+            highlight = 'text-[#D97706] bg-[#FFF6D1] border-[#FDE68A]';
+        }
+        else if (el === 'enhancement') {
+            highlight = 'text-[#00A96E] bg-[#DEFCE8] border-[#BBF7D0]';
+        }
+        else if (el === 'documentation') {
+            highlight = 'text-purple-700 bg-purple-100 border-purple-300'
+        }
+        else if (el === 'good first issue') {
+            highlight = 'text-blue-700 bg-blue-100 border-blue-300'
+        }
+
+
+        return `<span class="${highlight} border px-[7px] py-1 rounded-xl">${el}</span>`;
+    });
     return (htmlElements.join(''));
 }
 
