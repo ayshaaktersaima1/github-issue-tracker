@@ -27,7 +27,8 @@
 <body class="bg-[#F8FAFC]">
     <header>
         <nav>
-            <div class="navbar bg-base-100 flex flex-col md:flex-row shadow-sm justify-between gap-0 md:gap-y-4 px-15 ">
+            <div
+                class="navbar bg-base-100 flex flex-col md:flex-row shadow-sm justify-between py-4 md:py-0 gap-4 md:gap-y-0 px-15 ">
                 <div class="flex items-center">
                     <img class="h-[37px] w-[36px]" src="assets/github-logo.png" alt="">
                     <a class="btn btn-ghost text-2xl pl-1 black-text">GitHub Issues Tracker</a>
@@ -53,7 +54,7 @@
     </header>
 
     <!-- tab buttons section -->
-    <section class="w-[80%] mx-auto pt-13 pb-4">
+    <section class="w-[80%] mx-auto pt-7 lg:pt-13 pb-4">
         <div id="tab-btn-containers" class=" bg-white p-6 shadow-md rounded-lg flex gap-2">
             <button onclick="loadAllIssues()" id="btn-all" class="tab-btn btn gray-text">All</button>
             <button id="btn-open" class="tab-btn btn gray-text">Open</button>
@@ -63,7 +64,8 @@
 
     <!-- no -->
     <section class="w-[80%] mx-auto">
-        <div class="bg-white p-6 shadow-lg border border-[#ededed]  rounded-t-lg flex items-center justify-between">
+        <div
+            class="bg-white p-6 shadow-lg border border-[#ededed]  rounded-t-lg flex flex-col md:flex-row gap-4 md:gap-0 items-start lg:items-center justify-between">
             <!-- left side -->
             <div class="flex items-center gap-2">
                 <div class="bg-[#ECE4FF] rounded-full p-2">
@@ -98,8 +100,8 @@
     <section class="w-[80%] mx-auto bg-[#f8fafc] pb-16">
 
         <!-- spinner -->
-        <div id="spinner" class="flex items-center justify-center ">
-            <span class="loading loading-spinner loading-xl h-40 "></span>
+        <div id="spinner" class="flex items-center justify-center mt-[-200px]">
+            <span class="loading loading-spinner loading-xl min-h-screen "></span>
         </div>
         <!-- card container -->
         <div id="cards-container"
