@@ -1,5 +1,6 @@
 const createElement = (arr) => {
     const htmlElements = arr.map(el => {
+        let highlight = '';
         if (el === 'bug') {
             highlight = 'text-[#EF4444] bg-[#FEECEC] border-[#FECACA]';
         }
@@ -106,7 +107,7 @@ const displayAllIssues = (issues) => {
                 <h2 class="black-text font-semibold text-base min-h-[48px]">${issue.title}</h2>
                 <p class="gray-text text-sm min-h-[80px]">${issue.description}</p>
                 <!-- 4th -->
-                <div class="">
+                <div>
                     <div class="flex items-center gap-2 font-medium uppercase text-xs">${createElement(issue.labels)}</div>
                     
                 </div>
@@ -182,33 +183,56 @@ const displaySingleIssue = (issue) => {
     const date = issue.createdAt.split('T')[0];
 
     const issueCon = document.getElementById('single-Issue-Con');
+
+    // status color in modal
+    let colors = '';
+    if (issue.status === 'open') {
+        colors = 'bg-[#00A96E] text-white';
+    }
+    else if (issue.status === 'closed') {
+        colors = 'bg-[#A855F7] text-white';
+    }
+
+    // priority color in modal
+    let priorityCls = '';
+    if (issue.priority === 'high') {
+        priorityCls = 'bg-[#EF4444] text-white';
+    }
+    else if (issue.priority === 'medium') {
+        priorityCls = 'bg-[#f59e0b] text-white';
+    }
+    else if (issue.priority === 'low') {
+        priorityCls = 'bg-[#9ca3af] text-white';
+    }
+
     issueCon.innerHTML = `<div class="modal-box">
 
                 <!-- card info -->
                 <h2 class="text black-text text-2xl font-bold pb-2">${issue.title}</h2>
                 <!-- 2nd line -->
                 <div class="flex items-center pb-6 gap-3">
-                    <div class="badge badge-primary font-medium text-sm">${issue.status}</div>
+                    <div class="px-4 py-1 rounded-xl capitalize ${colors} font-medium text-sm">${issue.status}</div>
+                    <div class="h-1 w-1 rounded-full bg-[#64748B]"></div>
                     <p class="gray-text text-sm">Opened by ${issue.author}</p>
+                    <div class="h-1 w-1 rounded-full bg-[#64748B]"></div>
                     <p class="gray-text text-sm">${date}</p>
                 </div>
                 <!-- 3rd line -->
                 <div class="flex items-center gap-1 pb-6">
-                    <div class="badge">Primary</div>
-                    <div class="badge">Primary</div>
+                    <div class="flex items-center gap-2 font-medium uppercase text-xs">${createElement(issue.labels)}</div>
                 </div>
                 <!-- des -->
                 <p class="gray-text pb-6">${issue.description}</p>
 
                 <!-- grey div -->
-                <div class="flex items-center justify-start gap-35 bg-[#F8FAFC] py-4 ">
+                <div class="flex items-center justify-start gap-35 bg-[#F8FAFC] py-4 rounded-lg">
                     <div class="pl-4">
                         <h2 class="gray-text">Assignee:</h2>
                         <p class="black-text font-semibold">${issue.author}</p>
                     </div>
-                    <div>
+                    <div class="space-y-1">
                         <p class="gray-text">Priority:</p>
-                        <div class="badge">${issue.priority}</div>
+                        <div class="px-3 text-center text-sm font-medium py-1 rounded-xl ${priorityCls} uppercase">${issue.priority}</div>
                     </div>
                 </div>
 
@@ -216,7 +240,7 @@ const displaySingleIssue = (issue) => {
                 <div class="modal-action">
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
-                        <button class="btn bg-[#4a00ff] text-white">Close</button>
+                        <button class="btn bg-[#4A00FF] text-white">Close</button>
                     </form>
                 </div>
             </div>`;
