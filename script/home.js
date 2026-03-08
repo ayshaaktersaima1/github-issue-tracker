@@ -1,5 +1,5 @@
 const createElement = (arr) => {
-    const htmlElements = arr.map(el => `<span class=" border border-gray-300 px-2 py-1 rounded-xl">${el}</span>`);
+    const htmlElements = arr.map(el => `<span class=" border border-gray-300 px-[7px] py-1 rounded-xl">${el}</span>`);
     return (htmlElements.join(''));
 }
 
@@ -65,13 +65,13 @@ const displayAllIssues = (issues) => {
 
         let priorityCls = '';
         if (issue.priority === 'high') {
-            priorityCls = 'text-[#EF4444] bg-[#EF4444]/20';
+            priorityCls = 'text-[#EF4444] bg-[#FEECEC]';
         }
         else if (issue.priority === 'medium') {
-            priorityCls = 'text-[#f59e0b] bg-[#f59e0b]/20';
+            priorityCls = 'text-[#f59e0b] bg-[#FFF6D1]';
         }
         else if (issue.priority === 'low') {
-            priorityCls = 'text-[#9ca3af] bg-[#9ca3af]/20';
+            priorityCls = 'text-[#9ca3af] bg-[#EEEFF2]';
         }
 
         const card = document.createElement('div');
