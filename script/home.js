@@ -75,7 +75,7 @@ const displayAllIssues = (issues) => {
                 <div class="flex justify-between items-center">
                     <div><img src="${statusImg}" alt=""></div>
                     <div>
-                        <div id="priority-badge" class="badge ${priorityCls} text-[12px] font-medium px-4">${issue.priority}</div>
+                        <div id="priority-badge" class="badge ${priorityCls} text-[12px] font-medium px-4 uppercase">${issue.priority}</div>
                     </div>
                 </div>
                 <!-- 2nd 3rd-->
@@ -205,10 +205,11 @@ const searching = () => {
 
     const searchInput = document.getElementById('search-input').value;
 
-    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInput}`;
+    if (searchInput.length > 0) {
+        const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInput}`;
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayAllIssues(data.data));
-
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayAllIssues(data.data));
+    }
 }
