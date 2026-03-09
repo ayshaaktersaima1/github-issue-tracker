@@ -105,7 +105,7 @@ const displayAllIssues = (issues) => {
                 </div>
                 <!-- 2nd 3rd-->
                 <h2 class="black-text font-semibold text-base min-h-[48px]">${issue.title}</h2>
-                <p class="gray-text text-sm min-h-[80px]">${issue.description}</p>
+                <p class="gray-text text-sm line-clamp-2">${issue.description}</p>
                 <!-- 4th -->
                 <div>
                     <div class="flex items-center gap-2 font-medium uppercase text-xs">${createElement(issue.labels)}</div>
@@ -228,7 +228,7 @@ const displaySingleIssue = (issue) => {
                 <div class="flex items-center justify-start gap-35 bg-[#F8FAFC] py-4 rounded-lg">
                     <div class="pl-4">
                         <h2 class="gray-text">Assignee:</h2>
-                        <p class="black-text font-semibold">${issue.assignee}</p>
+                        <p class="black-text font-semibold">${issue.assignee ? issue.assignee : 'Unknown'}</p>
                     </div>
                     <div class="space-y-1">
                         <p class="gray-text">Priority:</p>
